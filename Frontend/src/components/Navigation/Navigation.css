@@ -1,0 +1,20 @@
+.navig-item {
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: grey;
+}
+
+.navig-item:nth-child(1):hover,
+.navig-item:nth-child(2):hover,
+.navig-item:nth-child(3):hover {
+    opacity: 0.8;
+}
+
+.navig-item:nth-child(4) {
+    cursor: not-allowed;
+}
+
+span {
+    margin-left: 10px;
+}

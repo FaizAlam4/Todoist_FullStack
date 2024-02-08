@@ -1,0 +1,58 @@
+.side-bar {
+    height: 100%;
+    overflow: scroll;
+    padding: 10px;
+    line-height: 1;
+    background-color: #faf8f7;
+    
+
+}
+
+.side-bar::-webkit-scrollbar{
+    width: 10px;
+}
+.project-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 60px;
+    padding-left: 20px;
+
+}
+
+.project-wrapper-2 {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 30px;
+    font-weight: bold;
+
+}
+
+
+#social {
+    width: 17px;
+    height: 15px;
+    display: block;
+    margin-left: 25px;
+}
+
+.list-item-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    gap: 0px;
+    line-height: 2
+}
+
+
+.fav-container{
+   
+    padding-top: 20px;
+    line-height: 2;
+    
+    list-style: none;
+   
+}

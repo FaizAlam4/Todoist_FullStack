@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 function NavigationTwo() {
   return (
     <div style={{display:'flex',flexFlow:'row wrap', justifyContent:'space-between', margin:'-7px', fontSize:'0.86rem', fontWeight:'bold', color:'gray'}}>
-      <Link to={'/'}>  <div style={{color:'grey'}}>My Projects /</div> </Link> 
+      <Link to={'/home'}>  <div style={{color:'grey'}}>My Projects /</div> </Link> 
         <div style={{display:'flex',flexFlow:'row nowrap', justifyContent:'space-evenly', gap:'10px'}}>
 
             <div style={{cursor:'pointer'}}><UserAddOutlined />Share</div>

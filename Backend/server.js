@@ -4,6 +4,7 @@ import cors from "cors";
 import db from "./app/models/index.js";
 import router from "./app/routes/project.routes.js";
 import taskRouter from "./app/routes/task.routes.js";
+import { verifyToken } from './app/middleware/authVerify.js'
 import authRouter from "./app/routes/auth.routes.js";
 
 const app = express();
@@ -13,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 var corsOptions = {
-  origin: "http://localhost:8081",
+  origin: "http://localhost:5173",
 };
 
 app.use(cors(corsOptions));
@@ -26,8 +27,8 @@ db.sequelize
     console.log(err);
   });
 app.use("/rest/v2", authRouter);
-app.use("/rest/v2/projects", router);
-app.use("/rest/v2/tasks", taskRouter);
+app.use("/rest/v2/projects",verifyToken, router);
+app.use("/rest/v2/tasks",verifyToken, taskRouter);
 
 db.sequelize
   .authenticate()

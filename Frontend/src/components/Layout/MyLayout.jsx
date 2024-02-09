@@ -49,8 +49,10 @@ function MyLayout() {
     <Layout style={layoutStyle}>
       <Sider width="20%" style={siderStyle}>
         <Routes>
-          <Route path={"/"} element={<SideMenu />}></Route>
+          <Route path={"/"} element={<SideMenuTwo />}></Route>
+          <Route path={"/home"} element={<SideMenu />}></Route>
           <Route path={"/:id"} element={<SideMenu />}></Route>
+          <Route path={"/*"} element={<SideMenuTwo/>}></Route>
           <Route path={"/login"} element={<SideMenuTwo />}></Route>
           <Route path={"/register"} element={<SideMenuTwo />}></Route>
         </Routes>
@@ -66,9 +68,8 @@ function MyLayout() {
         </Header>
         <Content style={contentStyle}>
           <Routes>
-            <Route path={"/"} element={<ProjectHome />}>
-              {" "}
-            </Route>
+            <Route path={"/"} element={<Login />}></Route>
+            <Route path={"/home"} element={<ProjectHome />}></Route>
             <Route path={"/:id"} element={<ProjectSection />}></Route>
             <Route path={"/*"} element={<ErrorPage />}></Route>
             <Route path={"/page-not-found"} element={<ResourceError />}></Route>

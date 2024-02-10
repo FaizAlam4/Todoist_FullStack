@@ -13,17 +13,23 @@ db.sequelize = sequelize;
 import projectModel from "./project.model.js";
 import taskModel from "./task.model.js";
 import userModel from "./user.model.js";
+import commentModel from "./comment.model.js";
+import labelModel from "./label.model.js";
 
 db.projects = projectModel(sequelize, Sequelize);
 db.tasks = taskModel(sequelize, Sequelize);
-db.users=userModel(sequelize,Sequelize);
+db.users = userModel(sequelize, Sequelize);
+db.comments = commentModel(sequelize, Sequelize);
+db.labels = labelModel(sequelize, Sequelize);
 
-db.users.hasMany(db.projects,{
-  foreignKey:"userId",
-  onDelete:"CASCADE",
-})
+//association for user,project,task
 
-db.projects.belongsTo(db.users)
+db.users.hasMany(db.projects, {
+  foreignKey: "userId",
+  onDelete: "CASCADE",
+});
+
+db.projects.belongsTo(db.users);
 
 db.projects.hasMany(db.tasks, {
   foreignKey: "projectId",

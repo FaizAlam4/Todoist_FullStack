@@ -8,27 +8,29 @@ function Registration() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const reqData = {
     name: name,
     email: email,
     password: password,
   };
+  const headers = {
+    "Content-Type": "application/json",
+  };
 
   const handleRegister = () => {
     myapi
-      .post(`http://localhost:8080/rest/v2/register`, reqData)
+      .post(`http://localhost:8080/rest/v2/register`, reqData, headers)
       .then((data) => {
         console.log(data.data);
-        alert("Registered!")
-        if(data.data){
-        navigate('/')
+        alert("Registered!");
+        if (data.data) {
+          navigate("/");
         }
       })
       .catch((err) => {
         console.log(err);
-        alert("User might be already registered!")
-        
+        alert("User might be already registered!");
       });
   };
 

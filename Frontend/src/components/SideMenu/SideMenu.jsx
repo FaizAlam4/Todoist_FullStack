@@ -37,7 +37,6 @@ function SideMenu() {
 
   const headers = {
     "Content-Type": "application/json",
-    "X-Request-Id": uuidv4(),
   };
 
   const projectName = projectData.map((ele) => {
@@ -46,8 +45,9 @@ function SideMenu() {
 
   useEffect(() => {
     myApi
-      .get(`https://api.todoist.com/rest/v2/projects`)
+      .get(`http://localhost:8080/rest/v2/projects/`)
       .then((data) => {
+        console.log(data)
         dispatch(displayProject(data));
       })
       .catch((err) => {

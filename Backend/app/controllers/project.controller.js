@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const Project = db.projects;
 
 export const findProjectAll = (req, res) => {
-  Project.findAll({where:{userId:req.userId}})
+  Project.findAll({ where: { userId: req.userId } })
     .then((data) => {
       res.status(200).send({ data: data });
       console.log(req.userId);
@@ -33,7 +33,7 @@ export const createProject = (req, res) => {
     res.status(400).send({ message: "Project should have a title" });
   }
 
-  Project.create({ ...req.body, id: uuidv4() ,userId:req.userId})
+  Project.create({ ...req.body, id: uuidv4(), userId: req.userId })
     .then((data) => {
       res.status(200).send(data);
     })

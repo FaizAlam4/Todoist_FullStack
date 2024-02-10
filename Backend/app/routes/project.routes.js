@@ -7,6 +7,7 @@ import {
 } from "../controllers/project.controller.js";
 
 import { Router } from "express";
+import { verifyToken } from "../middleware/authVerify.js";
 var router = Router();
 
 router.get("/", findProjectAll);

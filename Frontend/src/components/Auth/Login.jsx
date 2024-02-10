@@ -6,12 +6,17 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
   const handleLogin = () => {
     myapi
       .post(`http://localhost:8080/rest/v2/login`, {
         email: email,
         password: password,
-      })
+      }, headers)
       .then((data) => {
         console.log(data.token);
         if (data.data) {

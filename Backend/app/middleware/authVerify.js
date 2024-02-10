@@ -3,15 +3,17 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization;
+  // const token = req.headers.authorization;
 
-  if (!token) {
+  const myToken = req.cookies.authToken;
+  console.log("Cookie ka token->", myToken);
+  if (!myToken) {
     return res.status(401).send({ message: "No token provided." });
   }
 
-  const tokenString = token.split(" ")[1];
+  // const tokenString = token.split(" ")[1];
   try {
-    const tokenData = jwt.verify(tokenString, process.env.SECRET_KEY);
+    const tokenData = jwt.verify(myToken, process.env.SECRET_KEY);
 
     req.userId = tokenData.id;
     next();

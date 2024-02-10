@@ -6,12 +6,11 @@
 }
 
 .navig-item:nth-child(1):hover,
-.navig-item:nth-child(2):hover,
-.navig-item:nth-child(3):hover {
+.navig-item:nth-child(2):hover{
     opacity: 0.8;
 }
 
-.navig-item:nth-child(4) {
+.navig-item:nth-child(3) {
     cursor: not-allowed;
 }
 

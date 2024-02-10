@@ -1,6 +1,7 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import db from "../models/index.js";
+
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -39,7 +40,9 @@ export const register = (req, res) => {
         password: hashedPassword,
       })
         .then((data) => {
-          res.status(201).send({ message: "User created successfully!" ,data:data});
+          res
+            .status(201)
+            .send({ message: "User created successfully!", data: data });
         })
         .catch((err) => {
           res
@@ -75,7 +78,10 @@ export const login = (req, res) => {
           { expiresIn: "1h" }
         );
 
-        res.status(200).send({ token: token,data:user });
+        res.cookie("authToken", token, {
+          httpOnly: true
+        });
+        res.status(200).send({ token: token, data: user });
       });
     })
     .catch((err) => {
@@ -83,6 +89,7 @@ export const login = (req, res) => {
     });
 };
 
-// const logout=(req,res)=>{
-
-// }
+export const logout = (req, res) => {
+  res.clearCookie("authToken");
+  res.status(200).send({ message: "Logged Out" });
+};

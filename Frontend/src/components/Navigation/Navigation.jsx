@@ -32,10 +32,6 @@ function Navigation() {
           </div>
         </Link>
         <div className="navig-item">
-          <LogoutOutlined />
-          <span>LogOut</span>
-        </div>
-        <div className="navig-item">
           <SettingOutlined />
           <span>Settings</span>
         </div>
